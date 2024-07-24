@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Allison Linda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <meta name="description" content="El curso de html5 es un curso impartido en el ITSZN a los alumnos de Ingeniería en Sistemas Computacionales para un mayor acervo en el conocimientos de desarrollo Web" />
+    <meta name="keywords" content="Curso, html5, ingenieria en sistemas computacionales" />
+    <meta name="author" content="Luis Enrique Ramirez Gonzalez" />
+    <style>
+      body {
+        background-color: #ffc0cb; /* Color de fondo rosa */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .gift-box {
+        width: 200px;
+        height: 200px;
+        background-color: #f06292; /* Color de la caja */
+        position: relative;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      .ribbon-horizontal {
+        width: 100%;
+        height: 20px;
+        background-color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      .ribbon-vertical {
+        width: 20px;
+        height: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .gift-box.open .ribbon-horizontal, .gift-box.open .ribbon-vertical {
+        display: none;
+      }
+      .card {
+        display: none;
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 600px;
+        background-color: rgb(1, 248, 236);
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        text-align: center;
+        animation: moveUpDown 2s infinite;
+      }
+      .card.open {
+        display: block;
+      }
+      .card.message-view {
+        animation: none;
+        box-shadow: none;
+        max-width: none;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .card.message-view h3, .card.message-view p {
+        margin: 10px;
+      }
+      .card.message-view .btn {
+        margin-top: 20px;
+      }
+      @keyframes moveUpDown {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      .open-message {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="open-message">Ábreme (❁´◡`❁)👉👈</div>
+    <div class="gift-box" onclick="openGiftBox()">
+      <div class="ribbon-horizontal"></div>
+      <div class="ribbon-vertical"></div>
+    </div>
+    <div class="card" onclick="showMessage()">
+      <h3>Para Allison</h3>
+      <p>Querida Allison,</p>
+      <p>Quiero decirte lo especial que eres para mí y cuánto significas en mi vida. Cada momento contigo es mágico y estoy agradecido por cada uno de ellos.</p>
+      <p>Con todo mi amor,</p>
+      <p>Tu pendejo</p>
+      <a href="principal.html" class="btn btn-primary">Sigamos</a>
+    </div>
+    <script>
+      function openGiftBox() {
+        document.querySelector('.gift-box').classList.toggle('open');
+        document.querySelector('.card').classList.toggle('open');
+      }
+
+      function showMessage() {
+        document.querySelector('.open-message').style.display = 'none';
+        document.querySelector('.gift-box').style.display = 'none';
+        document.querySelector('.card').classList.add('message-view');
+      }
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+  </body>
+</html>
